@@ -16,9 +16,7 @@ export function jsonParse(jsonStr: string) {
 
 export function readFileSyncByRelativePath(relativePath: string): string {
   const path = getPath(relativePath);
-  console.log(path, 992);
   if (!existsSync(path)) {return '';};
-  console.log()
   try {
     return readFileSync(path).toString('utf-8');
   } catch(e) {

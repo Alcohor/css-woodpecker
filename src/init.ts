@@ -12,7 +12,6 @@ function loadCssConfig(): CssConfigList {
     return [];
   }
   pluginConfig = jsonParse(readFileSyncByRelativePath(PLUGIN_CONFIG_PATH));
-  console.log(pluginConfig);
   initColorConfig();
 
   return [

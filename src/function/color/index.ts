@@ -39,12 +39,10 @@ function analyzeColorConfigFormColorConfigString(colorConfigString: string):Colo
 
 export function initColorConfig(): void {
   const { enable, configPath } = pluginConfig?.color || {};
-  console.log(pluginConfig?.color, 8);
   if (!enable) {
     colorConfigList = [];
   } else {
     const colorConfigString = getCssColorConfigString(configPath);
-    console.log(colorConfigString, 9);
     colorConfigList = analyzeColorConfigFormColorConfigString(colorConfigString);    
   }
 };
