@@ -1,1 +1,0 @@
-export const SUPPORT_LANGUAGES: string[] = ['vue', 'scss'];
