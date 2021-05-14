@@ -3,6 +3,7 @@
 	"displayName": "css-woodpecker",
 	"description": "",
 	"version": "0.0.1",
+	"publisher": "Chenbin Yu",
 	"engines": {
 		"vscode": "^1.55.0"
 	},
