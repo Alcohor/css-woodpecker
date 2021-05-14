@@ -6,12 +6,12 @@ import { init } from './init';
 import { CssValueToNameProcess } from './process';
 
 export function activate(context: vscode.ExtensionContext) {
+	
+	const cssConfigList = init();
+	
+	const cssValueToNameProcess = new CssValueToNameProcess(cssConfigList);
 	const hoverProvider = new HoverProvider();
 	context.subscriptions.push(vscode.languages.registerHoverProvider(SUPPORT_LANGUAGES_DEFAULT, hoverProvider));
-
-	const cssConfigList = init();
-
-	const cssValueToNameProcess = new CssValueToNameProcess(cssConfigList);
 
 	for (const lan of SUPPORT_LANGUAGES_DEFAULT) {
     const providerDisposable = vscode.languages.registerCompletionItemProvider(lan, new CssWoodPeckerProvider(lan, cssValueToNameProcess));
