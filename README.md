@@ -19,12 +19,14 @@
 ```
 ## Release Notes
 
-Users appreciate release notes as you update your extension.
-
 ### 1.0.0
 
 + 提供了css变量值到css变量名的快速转换
 + 提供了hover时的css变量值hover到css变量名的提示
+
+### 1.0.1
+
++ 添加图标
 
 -----------------------------------------------------------------------------------------------------------
 

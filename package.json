@@ -2,8 +2,9 @@
   "name": "css-woodpecker",
 	"displayName": "css-woodpecker",
 	"description": "",
-	"version": "0.0.1",
-	"publisher": "Chenbin Yu",
+	"version": "1.0.1",
+	"publisher": "yuchenbin",
+	"icon": "icon.jpg",
 	"engines": {
 		"vscode": "^1.55.0"
 	},
@@ -29,6 +30,10 @@
 			}
 		]
 	},
+	"repository": {
+    "type": "git",
+    "url": "https://github.com/Alcohor/css-woodpecker"
+  },
 	"scripts": {
 		"vscode:prepublish": "yarn run package",
 		"build": "webpack",
