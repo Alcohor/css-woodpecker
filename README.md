@@ -9,6 +9,12 @@
 <img src="demo.png" alt="demo" style="width:500px;" />
 
 ## Extension Settings
+### Setting Path
+
+项目下的 `.vscode` 文件夹内创建 `.cssWoodpecker` 文件
+
+`/.vscode/.cssWoodpecker`
+### Settings Demo
 ```
 {
   "color":{
@@ -27,6 +33,10 @@
 ### 1.0.1
 
 + 添加图标
+
+### 1.0.2
+
++ Readme update
 
 -----------------------------------------------------------------------------------------------------------
 
