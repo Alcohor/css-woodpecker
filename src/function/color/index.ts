@@ -24,7 +24,7 @@ function getCssColorConfigString(configPath: ConfigPath ): string {
 /**解析从项目中读取到的cssColorConfig文件的字符串，输出键值对 */ 
 function analyzeColorConfigFormColorConfigString(colorConfigString: string):ColorCssConfig[]  {
   const colorConfigs = colorConfigString.match(colorConfigReg) || [];
-  return colorConfigs.map((item: string ) => {
+  const originColorConfigList = colorConfigs.map((item: string ) => {
     item.match(colorConfigReg);
     return {
         type: 'color',
@@ -35,6 +35,17 @@ function analyzeColorConfigFormColorConfigString(colorConfigString: string):Colo
         completionItemKindType: CompletionItemKind.Color,
     };
   });
+  originColorConfigList.forEach(config => {
+    const colorNumberVal = config.value.slice(1);
+    // 色彩值是否被缩写
+    const isColorValueAbbreviated = colorNumberVal.length === 3;
+    if (isColorValueAbbreviated) {
+      const fullColorValue = colorNumberVal.replace(/\w/g, val => val + val);
+      const value = `#${fullColorValue}`;
+      originColorConfigList.push({ ...config, value });
+    };
+  });
+  return originColorConfigList;
 };
 
 export function initColorConfig(): void {
