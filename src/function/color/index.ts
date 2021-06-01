@@ -21,18 +21,22 @@ function getCssColorConfigString(configPath: ConfigPath ): string {
   return configString;
 };
 
+function getValueToNameLabel(from: string, to: string): string {
+  return `${from?.toUpperCase()} to ${to}`;
+};
+
 /**解析从项目中读取到的cssColorConfig文件的字符串，输出键值对 */ 
 function analyzeColorConfigFormColorConfigString(colorConfigString: string):ColorCssConfig[]  {
   const colorConfigs = colorConfigString.match(colorConfigReg) || [];
   const originColorConfigList = colorConfigs.map((item: string ) => {
     item.match(colorConfigReg);
     return {
-        type: 'color',
-        value: RegExp.$2,
-        configName: RegExp.$1,
-        valueToNameLabel: (`${(RegExp.$2).toUpperCase()} -> ${RegExp.$1}`),
-        nameToValueLabel: `${RegExp.$1} -> ${(RegExp.$2).toUpperCase()}`,
-        completionItemKindType: CompletionItemKind.Color,
+      type: 'color',
+      value: RegExp.$2,
+      configName: RegExp.$1,
+      valueToNameLabel: getValueToNameLabel(RegExp.$2, RegExp.$1),
+      nameToValueLabel: `${RegExp.$1} -> ${(RegExp.$2).toUpperCase()}`,
+      completionItemKindType: CompletionItemKind.Color,
     };
   });
   originColorConfigList.forEach(config => {
@@ -42,7 +46,11 @@ function analyzeColorConfigFormColorConfigString(colorConfigString: string):Colo
     if (isColorValueAbbreviated) {
       const fullColorValue = colorNumberVal.replace(/\w/g, val => val + val);
       const value = `#${fullColorValue}`;
-      originColorConfigList.push({ ...config, value });
+      originColorConfigList.push({
+        ...config, 
+        value, 
+        valueToNameLabel: getValueToNameLabel(value, config.configName),
+      });
     };
   });
   return originColorConfigList;
