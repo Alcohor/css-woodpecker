@@ -48,7 +48,7 @@ function analyzeColorConfigFormColorConfigString(colorConfigString: string):Colo
       const value = `#${fullColorValue}`;
       originColorConfigList.push({
         ...config, 
-        value, 
+        value,
         valueToNameLabel: getValueToNameLabel(value, config.configName),
       });
     };

@@ -3,8 +3,11 @@
 > 一个css变量转换插件
 
 ## Example
-+ css变量值到css变量名的快速转换
++ css 颜色值到css变量名的快速转换
 <img src="demo.gif" alt="demo" style="width:500px;" />
++ css 颜色值为纯数字时请在色值后面添加 空格to
+<img src="colorNumber.png" alt="demo" style="width:800px;" />
+
 + hover时的css变量值hover到css变量名的提示
 <img src="demo.png" alt="demo" style="width:500px;" />
 
@@ -37,6 +40,9 @@
 ### 1.0.2
 
 + Readme update
+### 1.0.3
+
++ 支持纯数字色值转换
 
 -----------------------------------------------------------------------------------------------------------
 
